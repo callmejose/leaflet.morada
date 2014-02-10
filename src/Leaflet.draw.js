@@ -31,7 +31,7 @@ L.drawLocal = {
 			},
 			marker: {
 				tooltip: {
-					start: 'Da clic en el mapa para señalar un punto.'
+					start: 'Clic en el mapa para señalar un punto.'
 				}
 			},
 			polygon: {
@@ -76,20 +76,20 @@ L.drawLocal = {
 			buttons: {
 				edit: 'Editar un punto.',
 				editDisabled: 'No hay puntos para editar.',
-				remove: 'Delete layers.',
-				removeDisabled: 'No layers to delete.'
+				remove: 'Borrar punto.',
+				removeDisabled: 'No hay puntos para borrar.'
 			}
 		},
 		handlers: {
 			edit: {
 				tooltip: {
 					text: 'Arrastra el punto para editarlo.',
-					subtext: 'Da clic en cancelar para descartar cambios.'
+					subtext: 'Clic en cancelar para descartar cambios.'
 				}
 			},
 			remove: {
 				tooltip: {
-					text: 'Click on a feature to remove'
+					text: 'Clic en un punto para eliminarlo '
 				}
 			}
 		}

@@ -89,7 +89,7 @@
 				},
 				edit: {
 					featureGroup: drawnItems,
-					remove: false,
+					remove: true,
 					edit: true
 				}
 			});
@@ -108,7 +108,33 @@
 			console.log("Edited " + countOfEditedLayers + " layers");
 		});
 		
-
+		map.on('draw:deleted', function (e) {
+			var layers = e.layers;
+			var countOfDeletedLayers = 0;
+			layers.eachLayer(function(layer) {
+				latLng = 0;
+				layer.bindPopup(latLng.lat+", "+latLng.lng);
+				countOfDeletedLayers++;
+			});
+			map.removeControl(drawControl); 
+			drawControl = new L.Control.Draw({
+					position: 'topleft',
+					draw: {
+					polyline: false,
+					polygon: false,
+					rectangle: false,
+					circle: false,
+					marker: true
+				},
+				edit: {
+					featureGroup: drawnItems,
+					remove: false,
+					edit: false
+				}
+			});
+			map.addControl(drawControl);
+			console.log("Deleted " + countOfDeletedLayers + " layers");
+		});
 		
 
 	
