@@ -44,10 +44,14 @@
 	<div id="map" style="width: 600px; height: 400px; border: 1px solid #ccc"></div>
     <button id="coordenadas">Obtener Coordenadas</button>
 	<script>
-		var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
-			cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18}),
-			map = new L.Map('map', {layers: [cloudmade], center: new L.LatLng(-37.7772, 175.2756), zoom: 15 });
+		var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/97295/256/{z}/{x}/{y}.png',
+			cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, minZoom: 11}),
+			map = new L.Map('map', {layers: [cloudmade], center: new L.LatLng(6.244998479140396, -75.57666778564453), zoom: 14 });
 
+		var southWest = [6.076376577831838, -75.66009521484375];
+		var northEast = [6.3649464754785114, -75.49238204956055];
+		map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+			
 		var drawnItems = new L.FeatureGroup();
 		map.addLayer(drawnItems);
 
@@ -62,7 +66,7 @@
 			},
 			edit: {
 				featureGroup: drawnItems,
-				remove: false
+				remove: true
 			}
 		});
 		map.addControl(drawControl);
@@ -128,8 +132,7 @@
 				},
 				edit: {
 					featureGroup: drawnItems,
-					remove: false,
-					edit: false
+					remove: true
 				}
 			});
 			map.addControl(drawControl);

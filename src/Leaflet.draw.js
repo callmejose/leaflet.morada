@@ -69,7 +69,7 @@ L.drawLocal = {
 					text: 'Guardar'
 				},
 				cancel: {
-					title: 'Cancelar edición, descartar cambios.',
+					title: 'Cancelar, descartar cambios.',
 					text: 'Cancelar'
 				}
 			},
